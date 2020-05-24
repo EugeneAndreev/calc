@@ -1,0 +1,273 @@
+<html>
+	<head>
+		<title>
+HTML Calculator
+		</title>
+<script> //сделать точку. добавить М. написать тест.
+
+var numcurrarr = [];
+var currentnumber;
+var n1;
+var n2;
+var operation;
+var displayvar;
+var dotInNum=false;
+
+//function dot() {} просто добавить if в проверку массива.
+
+
+function fdisplay() {
+//	alert ("display");
+let display = document.getElementById("display");
+display.innerHTML=displayvar;
+}
+
+/*function w () {
+	let dcurrentnumber = document.getElementById ("currentnumber");
+	let dn1 = document.getElementById ("n1");
+	let dn2 = document.getElementById ("n2");
+	let doperation = document.getElementById ("operation");
+
+	
+dcurrentnumber.innerHTML="currentnumber:" + currentnumber;
+dn1.innerHTML="n1 " + n1;
+dn2.innerHTML="n2 " + n2;
+doperation.innerHTML="operation: " + operation;
+}*/
+
+function inputnum (x){
+let display = document.getElementById ("display");
+// if (x=="."){
+// 	dotInNum=true;
+// }
+// if (dotInNum==true) {
+	// else
+if (numcurrarr.length<10 && (dotInNum==false || x!=".")){
+// if (numcurrarr.length<10){
+//	if (let )
+//	for ( let i=0, i<=numcurrarr.length, i++) {
+numcurrarr.push(x);
+let numcurrnum = numcurrarr.join('');
+displayvar=numcurrnum;
+// displayvar=Number(numcurrnum); //убрать лишнюю переменную  -сделал лучше - преоброзование к числу через эту переменную
+	//выдает ошибку при устанокке 2 точек
+
+fdisplay();  //ПОлчему не выводит точку??? - потому что при преобразовании в число точка в конце числа не отображается
+if (x=="."){
+	dotInNum=true;
+alert(donInNum);
+}
+	//}
+// }
+}
+}
+
+function a() {alert ("operation: " + operation + " n1: " + n1 + " n2: " + n2 + " displayvar: " + displayvar);}
+function log(y) {
+	let displaylog=document.getElementById("displaylog");
+	//displaylog.innerHTML+= "<br>" + y + "operation: " + operation + " n1: " + n1 + " n2: " + n2 + " displayvar: " + displayvar;
+	displaylog.innerHTML+=`<br> ${y} typeofdisplayvar:${typeof(displayvar)} operation:${operation} n1:${n1} n2${displayvar} displayvar:${displayvar}`;
+}
+
+function freset () {
+numcurrarr.length=0;
+let numcurrnum=0;
+n1=0;
+n2=0;
+operation=0;
+displayvar=0;
+fdisplay();
+dotInNum=false;
+}
+
+function fadd () {
+log(y="fadd1. ");
+fresult();
+n1=displayvar;
+numcurrarr.length=0;
+operation="add";
+log(y="fadd2. ");
+dotInNum=false;
+}
+
+function fsub (){
+log();
+fresult();
+n1 = displayvar;
+numcurrarr.length=0;
+operation="sub";
+dotInNum=false;
+log();
+}
+
+function fmul () {
+log();
+fresult();
+n1=displayvar;
+numcurrarr.length=0;
+operation="mul";
+dotInNum=false;
+log();
+}
+
+
+function fdiv () {
+log();
+fresult();
+n1=displayvar;
+numcurrarr.length=0;
+operation="div";
+dotInNum=false;
+log();
+}
+
+
+
+
+
+function fresult () {   //где объявлять result И display? не работают в блоке
+switch (operation){
+case "add":
+log();
+n2=displayvar;
+displayvar = +n1 + +n2;
+fdisplay();
+log();
+//a();
+break;
+case "sub":
+alert ("fres sub");
+log();
+n2=displayvar;
+displayvar = +n1 - +n2;
+fdisplay();
+log();
+//a();
+/*alert ("sub");
+n2 = currentnumber;
+alert ("n1: " + n1 + " n2: " + n2);
+let result1 = +n1 - +n2;
+alert (result1);
+let display1 = document.getElementById ("display")
+display1.innerHTML=result1;   //как работать с переменными let в блоке?
+displayvar=result1;
+w();*/
+break;
+case "mul":
+log();
+n2=displayvar;
+displayvar = +n1 * +n2;
+fdisplay();
+log();
+//alert ("mul");
+//n2 = numcurrarr.join('');
+//alert (n2);
+//let result= +n1 * +n2;
+//let display = document.getElementById ("display")
+//display.innerHTML=result;
+break;
+case "div":
+log();
+n2=displayvar;
+displayvar = +n1 / +n2;
+fdisplay();
+log();
+//alert ("div");
+//n2 = numcurrarr.join('');
+//alert (n2);
+//let result= +n1 / +n2;
+//let display = document.getElementById ("display")
+//display.innerHTML=result;
+break;
+//case "res":
+//alert ("res");
+//break;*/
+}
+}
+
+ </script>
+<style> /*<!--добавить фоновые картинки для всех элементов - металл для корпуса, шрифты для дисплея, на кнопки, на рамки кнопок -->*/
+#display {
+
+background-color:lightgray
+}
+#display {
+padding:10px;
+width:150px;
+min-width:150;
+max-width:150;
+border:1px solidblack;
+}
+
+<!-- 
+tr {
+padding: 10px; /* не работает*/
+}
+-->
+
+
+</style>
+<script></script>
+
+</head>
+<body>
+
+<div id=display align=right>0</div>
+
+
+
+<!--div id=currentnumber align=right></div>
+<div id=n1 align=right></div>
+<div id=n2 align=right></div>
+<div id=operation align=right></div-->
+
+<!-- <table border="2" align=right>
+<tr>
+<td>
+0
+</td>
+</tr>
+</table>
+<p>  -->
+<hr width="150px" align="left" />
+<div id=numpad align=left>
+
+<table>
+<tr>
+<td><button onclick="fadd()">+</button></td>
+<td><button onclick="inputnum(x=7)">7</button></td>
+<td><button onclick="inputnum(x=8)">8</button></td>
+<td><button onclick="inputnum(x=9)">9</button></td>
+</tr>
+
+<tr>
+<td><button onclick="fsub()">-</button></td>
+<td><button onclick="inputnum(x=4)">4</button></td>
+<td><button onclick="inputnum(x=5)">5</button></td>
+<td><button onclick="inputnum(x=6)">6</button></td>
+</tr>
+<tr>
+<td><button onclick="fmul()">*</button></td>
+<td><button onclick="inputnum(x=1)">1</button></td>
+<td><button onclick="inputnum(x=2)">2</button></td>
+<td><button onclick="inputnum(x=3)">3</button></td>
+</tr>
+<tr>
+<td><button onclick="fdiv()">/</button></td>
+<td><button onclick="inputnum(x=0)">0</button></td>
+<td><button onclick="fresult()">=</button></td>
+<td><button onclick="freset()">C</button></td>
+<td><button onclick="inputnum(x='.')">.</button></td>
+<!-- <td><button id=cancel>C</button></td> -->
+</tr>
+</table>
+
+</div>
+<div id=displaylog align=left>log</div>
+<script>
+
+
+
+</script>
+</body>
+</html>

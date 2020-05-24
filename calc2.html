@@ -1,0 +1,21 @@
+<html>
+<head>
+<script>
+
+//var n=prompt('enter a number');
+//var res=Math.sqrt(n);
+//alert(res);
+
+function printTime() {
+    var d = new Date();
+    var hours = d.getHours();
+    var mins = d.getMinutes();
+    var secs = d.getSeconds();
+    document.body.innerHTML = 'писька'+hours+":"+mins+":"+secs;
+}
+setInterval(printTime, 1000);
+
+
+</script>
+</head>
+</html>

@@ -1,0 +1,213 @@
+<html>
+	<head>
+		<title>
+HTML Calculator
+		</title>
+<script> //сделать точку. добавить М
+
+var numcurrarr = [];
+var n1;
+var n2;
+var operation;
+
+
+function inputnum (x){
+//alert (x);
+let display = document.getElementById ("display");
+//alert (display);
+if (numcurrarr.length<10){
+numcurrarr.push(x);
+let numcurrnum = numcurrarr.join('');
+//alert (numcurrnum);
+display.innerHTML=numcurrnum;
+}
+}
+
+function freset () {
+//alert ("reset");
+//let numcurrarr=[]
+numcurrarr.length=0;
+let numcurrnum=0;
+/*alert ("в строке " + numcurrnum);
+numcurrnum = numcurrarr.join('');
+alert ("в массиве " + numcurrnum);*/
+let display = document.getElementById ("display");
+display.innerHTML=numcurrnum;
+}
+
+function fadd () {
+//alert ("сложение1");
+//alert (numcurrnum);
+//let n1=numcurrnum;
+//var x=numcurrnum;
+//let numcurrnum = numcurrarr.join(''); цифры не вводятся
+n1 = numcurrarr.join(''); //не получалось перенести переменную numcurrnum из inputnum
+//alert ("сложение2 " + num1);
+numcurrarr.length=0;
+//alert ("сложение3");
+//let numcurrnum=0; не нужно
+//alert ("сложение4");
+operation="add";
+alert (operation);
+
+//fresult();
+//alert ("вызвана fresult");
+
+//alert ("сложение5");
+//let display = document.getElementById ("display");
+//alert ("сложение6");
+//display.innerHTML=numcurrnum; не работает и не нужно
+//alert ("сложение7");
+//fresult();
+}
+
+function fsub (){
+operation="sub";
+	fresult();
+//	alert ("после вызова result");
+	
+//n1 = numcurrarr.join('');
+//numcurrarr.length=0;
+//operation="sub";
+//alert (operation);
+
+}
+
+function fresult () {   //где объявлять result И display? не работают в блоке
+switch (operation){
+case "add":
+//alert (n1);
+n2 = numcurrarr.join('');
+//alert (n2);
+let result= +n1 + +n2;
+let display = document.getElementById ("display")
+display.innerHTML=result;
+n1=result;
+break;
+case "sub": //////////////////////////////////////////////////////////////////////////////////////////////
+alert ("sub");
+n2 = numcurrarr.join('');
+alert ("n1: " + n1 + " n2: " + n2);
+let result1 = +n1 - +n2;
+alert (result1);
+let display1 = document.getElementById ("display")
+display1.innerHTML=result1;   //как работать с переменными let в блоке?
+break;
+/*case "mul":
+alert ("mul");
+n2 = numcurrarr.join('');
+//alert (n2);
+let result= +n1 * +n2;
+let display = document.getElementById ("display")
+display.innerHTML=result;
+break;
+case "div":
+alert ("div");
+n2 = numcurrarr.join('');
+//alert (n2);
+let result= +n1 / +n2;
+let display = document.getElementById ("display")
+display.innerHTML=result;
+break;
+/*case "res":
+alert ("res");
+break;*/
+}
+}
+
+
+//fresult (operation) {
+
+
+
+ </script>
+<style> <!--добавить фоновые картинки для всех элементов - металл для корпуса, шрифты для дисплея, на кнопки, на рамки кнопок -->
+#display {
+
+background-color:lightgray
+}
+div {
+padding:10px;
+width:150px;
+min-width:150;
+max-width:150;
+border:1px solid black;
+}
+
+<!-- 
+tr {
+padding: 10px; не работает
+}
+-->
+
+
+</style>
+<script>
+
+
+/*function mouseinput {
+Num1=document.getElementById("display")}
+
+function operation (Num1,Num2,Operation) {
+var result=input1 operation input2,
+}
+document.write (result),
+*/
+//switch
+
+//function onmouseup {}
+
+</script>
+
+</head>
+<body>
+<div id=display align=right>0</div>
+<!-- <table border="2" align=right>
+<tr>
+<td>
+0
+</td>
+</tr>
+</table>
+<p>  -->
+<hr width="150px" align="left" />
+<div id=numpad align="right">
+
+<table>
+<tr>
+<td><button onclick="fadd()">+</button></td>
+<td><button onclick="inputnum(x=7)">7</button></td>
+<td><button onclick="inputnum(x=8)">8</button></td>
+<td><button onclick="inputnum(x=9)">9</button></td>
+</tr>
+
+<tr>
+<td><button onclick="fsub()">-</button></td>
+<td><button onclick="inputnum(x=4)">4</button></td>
+<td><button onclick="inputnum(x=5)">5</button></td>
+<td><button onclick="inputnum(x=6)">6</button></td>
+</tr>
+<tr>
+<td><button onclick="fmul()">*</button></td>
+<td><button onclick="inputnum(x=1)">1</button></td>
+<td><button onclick="inputnum(x=2)">2</button></td>
+<td><button onclick="inputnum(x=3)">3</button></td>
+</tr>
+<tr>
+<td><button onclick="fdiv()">/</button></td>
+<td><button onclick="inputnum(x=0)">0</button></td>
+<td><button onclick="fresult()">=</button></td>
+<td><button onclick="freset()">C</button></td>
+<!-- <td><button id=cancel>C</button></td> -->
+</tr>
+</table>
+
+</div>
+
+<script>
+
+
+
+</script>
+</body>
+</html>

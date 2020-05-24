@@ -1,0 +1,42 @@
+<html>
+
+<head>
+	<title>"111"</title>
+
+<script>
+
+</script>
+
+
+
+</head>
+
+<body>
+<div id="display">0</div>
+<br>
+<button id=one onclick="inputnum(x=1)" > 1 </button>
+<button id=one onclick="inputnum(x=2)" > 2 </button>
+<button id=one onclick="inputnum(x=.)" > . </button>
+<button id=plus onclick="add()"> +</button>
+
+
+<script>
+var numcurrarr = [];
+
+function inputnum (x){
+//alert (x);
+let num1 = document.getElementById ("display");
+//alert (num1);
+if (numcurrarr.length<10){
+numcurrarr.push(x);
+let numcurrnum = numcurrarr.join('');
+
+//alert (numcurrnum);
+num1.innerHTML=numcurrnum;
+//}
+}
+</script>
+
+</body>
+
+</html>
